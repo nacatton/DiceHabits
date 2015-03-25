@@ -11,20 +11,39 @@ import android.widget.Button;
 
 public class DiceHabitsActivity extends Activity {
 
-    private Button mEnterHabitsButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dice_habits);
 
-        mEnterHabitsButton = (Button)findViewById(R.id.enterHabitsButton);
+        Button enterHabitsButton = (Button) findViewById(R.id.enterHabitsButton);
 
-        mEnterHabitsButton.setOnClickListener(new View.OnClickListener() {
+        enterHabitsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent = new Intent(view.getContext(),SetHabitsActivity.class);
+                startActivity(intent);
+            }
+
+        });
+
+        Button diceButton = (Button) findViewById(R.id.diceButton);
+
+        diceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(),GenerateHabitActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button journalButton = (Button) findViewById(R.id.journalButton);
+
+        journalButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(),JournalActivity.class);
                 startActivity(intent);
             }
         });
