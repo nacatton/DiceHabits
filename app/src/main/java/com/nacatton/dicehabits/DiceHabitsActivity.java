@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 
 public class DiceHabitsActivity extends Activity {
@@ -28,7 +29,7 @@ public class DiceHabitsActivity extends Activity {
 
         });
 
-        Button diceButton = (Button) findViewById(R.id.diceButton);
+        ImageButton diceButton = (ImageButton) findViewById(R.id.diceButton);
 
         diceButton.setOnClickListener(new View.OnClickListener() {
             @Override
