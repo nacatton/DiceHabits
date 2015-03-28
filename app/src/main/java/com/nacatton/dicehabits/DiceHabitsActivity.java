@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 
 public class DiceHabitsActivity extends Activity {
@@ -17,7 +18,7 @@ public class DiceHabitsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dice_habits);
 
-        Button enterHabitsButton = (Button) findViewById(R.id.enterHabitsButton);
+        final Button enterHabitsButton = (Button) findViewById(R.id.enterHabitsButton);
 
         enterHabitsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,6 +26,9 @@ public class DiceHabitsActivity extends Activity {
 
                 Intent intent = new Intent(view.getContext(),SetHabitsActivity.class);
                 startActivity(intent);
+
+
+
             }
 
         });
@@ -32,10 +36,15 @@ public class DiceHabitsActivity extends Activity {
         ImageButton diceButton = (ImageButton) findViewById(R.id.diceButton);
 
         diceButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),GenerateHabitActivity.class);
-                startActivity(intent);
+                if (SetHabitsActivity.habitsFactory.findAll().size() > 0) {
+                    Intent intent = new Intent(view.getContext(), GenerateHabitActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(view.getContext(), "Set your activities first!", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

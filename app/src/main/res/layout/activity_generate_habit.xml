@@ -12,36 +12,68 @@
         android:text="Inspirational Quote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/inspirationalQuote">
+        android:id="@+id/inspirationalQuote"
+        android:gravity="center_horizontal">
 
         </TextView>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nailed it!"
-        android:id="@+id/button"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignRight="@+id/inspirationalQuote"
+        android:layout_alignEnd="@+id/inspirationalQuote"
+        android:weightSum="1"
+        android:id="@+id/linearLayout4">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Failed it..."
-        android:id="@+id/button2"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        <Button
+            android:layout_width="178dp"
+            android:layout_height="244dp"
+            android:text="Nailed it!"
+            android:id="@+id/nailedItButton"
+            android:layout_toLeftOf="@+id/failedItButton"
+            android:layout_toStartOf="@+id/failedItButton"
+            android:layout_below="@+id/taskView"
+            android:layout_alignParentBottom="true"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="false"
+            android:background="#66cc33" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Failed it..."
+            android:id="@+id/failedItButton"
+            android:layout_alignTop="@+id/nailedItButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentStart="false"
+            android:textStyle="bold"
+            android:background="#ff0000" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/inspirationalQuote"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/linearLayout4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" GO FOR A RUN 45mins!!!!"
+            android:id="@+id/activityTaskView"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="45dp"
+            android:gravity="center_horizontal" />
+
+    </FrameLayout>
 
 
 </RelativeLayout>
