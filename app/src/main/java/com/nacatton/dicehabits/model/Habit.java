@@ -1,9 +1,11 @@
 package com.nacatton.dicehabits.model;
 
+import java.io.Serializable;
+
 /**
  * Created by nacatton on 27/03/15.
  */
-public class Habit {
+public class Habit implements Serializable {
     private String habit;
     private int minutes;
     private int position;

@@ -1,6 +1,7 @@
 package com.nacatton.dicehabits.model;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -28,6 +29,7 @@ public class HabitsFactory {
             os.close();
             fos.close();
         } catch (IOException e) {
+            Log.e("HabitsFactory", e.getMessage());
             e.printStackTrace();
         }
     }
@@ -41,8 +43,10 @@ public class HabitsFactory {
             is.close();
             fis.close();
         } catch (IOException e) {
+            Log.e("HabitsFactory", e.getMessage());
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            Log.e("HabitsFactory", e.getMessage());
             e.printStackTrace();
         }
     }

@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.nacatton.dicehabits.model.JournalData;
+
 
 public class DiceHabitsActivity extends Activity {
 
@@ -18,20 +20,19 @@ public class DiceHabitsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dice_habits);
 
-        final Button enterHabitsButton = (Button) findViewById(R.id.enterHabitsButton);
+        JournalData.readFile( this );
 
+        final Button enterHabitsButton = (Button) findViewById(R.id.enterHabitsButton);
         enterHabitsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(view.getContext(),SetHabitsActivity.class);
                 startActivity(intent);
-
-
-
             }
 
         });
+
+
 
         ImageButton diceButton = (ImageButton) findViewById(R.id.diceButton);
 

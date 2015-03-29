@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nacatton.dicehabits.model.Habit;
+import com.nacatton.dicehabits.model.JournalData;
+import com.nacatton.dicehabits.model.JournalItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,7 @@ import java.util.Random;
 
 public class GenerateHabitActivity extends Activity {
    public Handler mHandler = new Handler();
+   public static Habit selectedHabit = null;
 
 
 
@@ -30,8 +33,6 @@ public class GenerateHabitActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generate_habit);
-
-
 
 
         List<String> phrases = new ArrayList<String>();
@@ -77,13 +78,14 @@ public class GenerateHabitActivity extends Activity {
 
         if (habits.size() > 0 ){
             int position = randomGenerator.nextInt(habits.size());
-            Habit habit = habits.get(position);
+            GenerateHabitActivity.selectedHabit = habits.get(position);
 
             //intent.putExtra("habitID",habit.getPosition();
             //intent.getExtra("habitID",position);
 
-            activityTaskView.setText(habit.getHabit().toUpperCase() + "\n"  + habit.getMinutes() + " mins!!!!");
+            activityTaskView.setText(selectedHabit.getHabit().toUpperCase() + "\n"  + selectedHabit.getMinutes() + " mins!!!!");
         }
+
 
 
         Animation anim = new AlphaAnimation(0.0f, 1.0f);
@@ -116,6 +118,10 @@ public class GenerateHabitActivity extends Activity {
                     //view.getBackground().clearColorFilter();
                     //view.invalidate();
                     view.setBackgroundColor( Color.parseColor( "#888888") );
+
+                    JournalData.journal.add( new JournalItem( GenerateHabitActivity.selectedHabit, true ) );
+                    JournalData.saveToFile( view.getContext() );
+
                     Toast.makeText(view.getContext(), "CONGRATULATIONS! Keep up the good work!", Toast.LENGTH_LONG).show();
                     delayStartJournal();
 
@@ -143,6 +149,10 @@ public class GenerateHabitActivity extends Activity {
                     //view.getBackground().clearColorFilter();
                     //view.invalidate();
                     view.setBackgroundColor( Color.parseColor( "#888888") );
+
+                    JournalData.journal.add( new JournalItem( GenerateHabitActivity.selectedHabit, false ) );
+                    JournalData.saveToFile( view.getContext() );
+
                     Toast.makeText(view.getContext(), "OH NO! Remember to read the motivational quotes next time!", Toast.LENGTH_LONG).show();
                     delayStartJournal();
 
