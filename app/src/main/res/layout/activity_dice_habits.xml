@@ -7,15 +7,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".DiceHabitsActivity"
-    android:background="@android:color/holo_blue_light">
+    android:background="@drawable/dice3">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Journal"
+        android:text="History"
         android:id="@+id/journalButton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textColor="@android:color/white" />
 
     <Button
         android:layout_width="wrap_content"
@@ -23,7 +25,9 @@
         android:text="Set Activities"
         android:id="@+id/enterHabitsButton"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
     <ImageButton
         android:layout_width="wrap_content"

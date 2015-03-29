@@ -62,13 +62,18 @@ public class SetHabitsActivity extends Activity {
         Iterator<Habit> habitIterator = habits.iterator();
         int position = 0;
         try {
-            while (habitIterator.hasNext()) {
+            for (int i = 0; i<habitTextList.size(); i++) {
+                position = 0;
                 EditText habitEditText = habitEditIter.next();
                 EditText timeEditText = timeEditIter.next();
-                Habit habit = habitIterator.next();
-                habitEditText.setText(habit.getHabit());
-                timeEditText.setText(String.valueOf(habit.getMinutes()));
-                position++;
+                if (habitIterator.hasNext()) {
+                    Habit habit = habitIterator.next();
+                    habitEditText.setText(habit.getHabit());
+                    timeEditText.setText(String.valueOf(habit.getMinutes()));
+                } else {
+                    habitEditText.setText("");
+                    timeEditText.setText("");
+                }
             }
         } catch (Exception e) {
             Log.d("SetHabitsActivity", "position=" + position);
@@ -92,6 +97,8 @@ public class SetHabitsActivity extends Activity {
                         habit.setMinutes(Integer.parseInt(timeString));
                         habit.setPosition(position);
                         habitsFactory.save(habit);
+                    } else {
+                        habitsFactory.delete(position);
                     }
                     position++;
                 }

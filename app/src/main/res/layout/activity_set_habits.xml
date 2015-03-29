@@ -26,14 +26,18 @@
                 android:layout_height="wrap_content"
                 android:text="Add Activity"
                 android:id="@+id/textView"
-                android:layout_column="0" />
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add Time"
                 android:id="@+id/textView2"
-                android:layout_column="3" />
+                android:layout_column="3"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
         </TableRow>
 
@@ -46,7 +50,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/enterHabit1"
                 android:layout_column="0"
-                android:hint="Go for a run" />
+                android:hint="Go for a run"
+                android:textColorHint="#ffa0a0a0" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -54,7 +59,8 @@
                 android:id="@+id/enterTime1"
                 android:layout_column="3"
                 android:hint="60 mins"
-                android:numeric="integer" />
+                android:numeric="integer"
+                android:textColorHint="#ffa0a0a0" />
         </TableRow>
 
         <TableRow
@@ -66,7 +72,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/enterHabit2"
                 android:layout_column="0"
-                android:hint="Read a book" />
+                android:hint="Read a book"
+                android:textColorHint="#ffa0a0a0" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -74,7 +81,8 @@
                 android:id="@+id/enterTime2"
                 android:layout_column="3"
                 android:hint="45 mins"
-                android:numeric="integer" />
+                android:numeric="integer"
+                android:textColorHint="#ffa0a0a0" />
         </TableRow>
 
         <TableRow
@@ -86,7 +94,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/enterHabit3"
                 android:layout_column="0"
-                android:hint="Meditate" />
+                android:hint="Meditate"
+                android:textColorHint="#ffa0a0a0" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -94,7 +103,8 @@
                 android:id="@+id/enterTime3"
                 android:layout_column="3"
                 android:hint="15 mins"
-                android:numeric="integer" />
+                android:numeric="integer"
+                android:textColorHint="#ffa0a0a0" />
 
         </TableRow>
 
@@ -108,7 +118,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/enterHabit4"
                 android:layout_column="0"
-                android:hint="Call a friend" />
+                android:hint="Call a friend"
+                android:textColorHint="#ffa0a0a0" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -116,7 +127,8 @@
                 android:id="@+id/enterTime4"
                 android:layout_column="3"
                 android:hint="20 mins"
-                android:numeric="integer" />
+                android:numeric="integer"
+                android:textColorHint="#ffa0a0a0" />
 
         </TableRow>
 
@@ -129,7 +141,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/enterHabit5"
                 android:layout_column="0"
-                android:hint="Listen to music" />
+                android:hint="Listen to music"
+                android:textColorHint="#ffa0a0a0" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -137,7 +150,8 @@
                 android:id="@+id/enterTime5"
                 android:layout_column="3"
                 android:hint="30 mins"
-                android:numeric="integer" />
+                android:numeric="integer"
+                android:textColorHint="#ffa0a0a0" />
         </TableRow>
 
         <TableRow
@@ -149,7 +163,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/enterHabit6"
                 android:layout_column="0"
-                android:hint="Take a walk" />
+                android:hint="Take a walk"
+                android:textColorHint="#ffa0a0a0" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -157,7 +172,8 @@
                 android:id="@+id/enterTime6"
                 android:layout_column="3"
                 android:hint="40 mins"
-                android:numeric="integer" />
+                android:numeric="integer"
+                android:textColorHint="#ffa0a0a0" />
         </TableRow>
 
         <TableRow

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -27,7 +28,7 @@ public class GenerateHabitActivity extends Activity {
    public Handler mHandler = new Handler();
    public static Habit selectedHabit = null;
 
-
+    long mLastClickTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +84,7 @@ public class GenerateHabitActivity extends Activity {
             //intent.putExtra("habitID",habit.getPosition();
             //intent.getExtra("habitID",position);
 
-            activityTaskView.setText(selectedHabit.getHabit().toUpperCase() + "\n"  + selectedHabit.getMinutes() + " mins!!!!");
+            activityTaskView.setText(selectedHabit.getHabit().toUpperCase() + "\n"  + selectedHabit.getMinutes() + " mins!!!");
         }
 
 
@@ -96,23 +97,30 @@ public class GenerateHabitActivity extends Activity {
         activityTaskView.startAnimation(anim);
 
         Button nailedItButton = (Button) findViewById(R.id.nailedItButton);
-        Button failedItButton = (Button) findViewById(R.id.failedItButton);
+        final Button failedItButton = (Button) findViewById(R.id.failedItButton);
 
         nailedItButton.setOnTouchListener( new View.OnTouchListener() {
 
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
 
+
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+                    return false;
+
+                }
                 if (motionEvent.getAction()==MotionEvent.ACTION_DOWN){
                     // do stuff
                     // change bg color
                     //view.getBackground().setColorFilter(0xe0f47521, PorterDuff.Mode.SRC_ATOP);
                     //view.invalidate();
-                    view.setBackgroundColor( Color.parseColor( "#444444") );
+                    view.setBackgroundColor(Color.parseColor("#444444"));
 
                 }
 
                 if (motionEvent.getAction()==MotionEvent.ACTION_UP){
+                    // Preventing multiple clicks, using threshold of 1 second
+
                     // do stuff
                     // change bg color
                     //view.getBackground().clearColorFilter();
@@ -123,6 +131,7 @@ public class GenerateHabitActivity extends Activity {
                     JournalData.saveToFile( view.getContext() );
 
                     Toast.makeText(view.getContext(), "CONGRATULATIONS! Keep up the good work!", Toast.LENGTH_LONG).show();
+                    mLastClickTime = SystemClock.elapsedRealtime();
                     delayStartJournal();
 
                 }
@@ -135,6 +144,10 @@ public class GenerateHabitActivity extends Activity {
         failedItButton.setOnTouchListener( new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+                    return false;
+
+                }
                 if (motionEvent.getAction()==MotionEvent.ACTION_DOWN){
                     // do stuff
                     // change bg color
@@ -150,10 +163,12 @@ public class GenerateHabitActivity extends Activity {
                     //view.invalidate();
                     view.setBackgroundColor( Color.parseColor( "#888888") );
 
+
                     JournalData.journal.add( new JournalItem( GenerateHabitActivity.selectedHabit, false ) );
                     JournalData.saveToFile( view.getContext() );
 
                     Toast.makeText(view.getContext(), "OH NO! Remember to read the motivational quotes next time!", Toast.LENGTH_LONG).show();
+                    mLastClickTime = SystemClock.elapsedRealtime();
                     delayStartJournal();
 
                 }

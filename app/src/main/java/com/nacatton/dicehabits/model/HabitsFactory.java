@@ -73,9 +73,14 @@ public class HabitsFactory {
 
 
 
-    public Habit delete(Habit habit) {
-        //TODO implement the rest of this method
-        throw new RuntimeException("Not implemented");
+    public void delete(int position) {
+        for (int i=0; i < habits.size(); i++) {
+            Habit currentHabit = habits.get(i);
+            if (currentHabit.getPosition() == position) {
+                habits.remove(i);
+                break;
+            }
+        }
     }
 
     public List<Habit> findAll() {

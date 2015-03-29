@@ -21,6 +21,7 @@ public class DiceHabitsActivity extends Activity {
         setContentView(R.layout.activity_dice_habits);
 
         JournalData.readFile( this );
+        SetHabitsActivity.habitsFactory.readFile(getApplicationContext());
 
         final Button enterHabitsButton = (Button) findViewById(R.id.enterHabitsButton);
         enterHabitsButton.setOnClickListener(new View.OnClickListener() {

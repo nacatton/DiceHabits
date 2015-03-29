@@ -12,24 +12,47 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_column="2">
+        android:layout_column="2"
+        android:id="@+id/linearLayout"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="407dp"
-            android:id="@+id/listView"
-            android:layout_weight="1.80" />
+            android:layout_width="371dp"
+            android:layout_height="500dp"
+            android:id="@+id/listView" />
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout2">
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="206dp"
             android:layout_height="wrap_content"
             android:text="Back to Dice"
             android:id="@+id/button"
             android:layout_column="2"
-            android:layout_weight="2.21"
             android:paddingEnd="10dp"
             android:paddingStart="10dp" />
+
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear History"
+        android:id="@+id/clearDataButton"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
